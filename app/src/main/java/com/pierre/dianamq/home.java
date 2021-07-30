@@ -2,11 +2,14 @@ package com.pierre.dianamq;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -81,9 +84,24 @@ public class home extends AppCompatActivity {
         client.subscribeWith()
                 .topicFilter(topicNiveau)
                 .callback(mqtt5Publish -> {
-                 // texte_niv.setText(String.format("%s%%", new String(String.valueOf(mqtt5Publish.getPayload()))));
-                   //client.disconnect();
-                  //  texte_niv.setText(UTF_8.decode(mqtt5Publish.getPayload().get()));
+                   /*
+                   le problème réside à ce niveau
+                   */
+                    texte_niv.setText(new String(String.valueOf(UTF_8.decode(mqtt5Publish.getPayload().get()))));
+                })
+                .send();
+
+        client.subscribeWith()
+                .topicFilter(topicDebit_in)
+                .callback(mqtt5Publish -> {
+                    //configuration du textview pour le debit
+                })
+                .send();
+
+        client.subscribeWith()
+                .topicFilter(topicDebit_out)
+                .callback(mqtt5Publish -> {
+                   //configuration du textvieew pour le débit sortant
                 })
                 .send();
 
