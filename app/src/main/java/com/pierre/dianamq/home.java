@@ -109,5 +109,76 @@ public class home extends AppCompatActivity {
             }
         });
 
+        btn_pompe2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(btn_pompe2.isChecked()){
+                    client.publishWith()
+                            .topic(topicPompe_out)
+                            .payload("allumer_pompe2".getBytes())
+                            .responseTopic(topicEtat)
+                            .send();
+
+                } else {
+                    client.publishWith()
+                            .topic(topicPompe_out)
+                            .payload("eteindre_pompe2".getBytes())
+                            .responseTopic(topicEtat)
+                            .send();
+                }
+            }
+        });
+
+        btn_vanne1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(btn_vanne1.isChecked()){
+                    client.publishWith()
+                            .topic(topicVanne_in)
+                            .payload("ouvrir_vanne1".getBytes())
+                            .responseTopic(topicEtat)
+                            .send();
+
+                } else {
+                    client.publishWith()
+                            .topic(topicPompe_in)
+                            .payload("fermer_vanne1".getBytes())
+                            .responseTopic(topicEtat)
+                            .send();
+                }
+            }
+        });
+
+        btn_vanne2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(btn_vanne2.isChecked()){
+                    client.publishWith()
+                            .topic(topicVanne_out)
+                            .payload("ouvrir_vanne2".getBytes())
+                            .responseTopic(topicEtat)
+                            .send();
+
+                } else {
+                    client.publishWith()
+                            .topic(topicPompe_out)
+                            .payload("fermer_vanne2".getBytes())
+                            .responseTopic(topicEtat)
+                            .send();
+                }
+            }
+        });
+
+        btn_arret.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                client.publishWith()
+                        .topic(topicUrgence)
+                        .payload("tout_arreter".getBytes())
+                        .responseTopic(topicEtat)
+                        .send();
+            }
+        });
+
     }
 }
