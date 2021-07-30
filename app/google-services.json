@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "187371719036",
+    "firebase_url": "https://diana-water-station-control-default-rtdb.firebaseio.com",
+    "project_id": "diana-water-station-control",
+    "storage_bucket": "diana-water-station-control.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187371719036:android:fd96af3851ed61e7f4bcf9",
+        "android_client_info": {
+          "package_name": "com.pierre.dianamq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187371719036-8n25efbf6jhc0mfu7qv97t3o0cogg8r0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt4mL5pYRLjDB2UexwYU4IkU0u59TmWhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187371719036-8n25efbf6jhc0mfu7qv97t3o0cogg8r0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
